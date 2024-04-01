@@ -76,7 +76,16 @@
                     <Label.FormattedText>
                         <FormattedString>
                             <Span Text="Don't have an account?   " TextColor="Black" />
-                            <Span Text="Sign Up" TextDecorations="Underline" TextColor="{StaticResource Primary}"/>
+
+                            <Span Text="Sign Up" TextDecorations="Underline" 
+                                  TextColor="{StaticResource Primary}">
+
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding TapCommand}"
+                                              CommandParameter="https://learn.microsoft.com/dotnet/maui/" />
+                                </Span.GestureRecognizers>
+                            </Span>
+                            
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
