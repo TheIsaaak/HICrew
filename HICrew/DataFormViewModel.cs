@@ -11,11 +11,14 @@
         public DataFormViewModel()
         {
             this.LoginFormModel = new LoginFormModel();
+            this.SignupFormModel = new SignupFormModel();
         }
 
         /// <summary>
         /// Gets or sets the login form model.
         /// </summary>
         public LoginFormModel LoginFormModel { get; set; }
+
+        public SignupFormModel SignupFormModel { get; set; }
     }
 }

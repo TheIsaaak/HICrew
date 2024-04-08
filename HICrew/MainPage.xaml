@@ -73,24 +73,20 @@
                        HorizontalOptions="Center"
                        HorizontalTextAlignment="Center"
                        FontSize="14">
+
+                    <Label.GestureRecognizers> <!--This handles the tap gesture for the whole label.-->
+                        <TapGestureRecognizer Tapped="NavigateSignup"/>
+                    </Label.GestureRecognizers>
+
                     <Label.FormattedText>
                         <FormattedString>
                             <Span Text="Don't have an account?   " TextColor="Black" />
-
                             <Span Text="Sign Up" TextDecorations="Underline" 
                                   TextColor="{StaticResource Primary}">
-
-                                <Span.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding TapCommand}"
-                                              CommandParameter="https://learn.microsoft.com/dotnet/maui/" />
-                                </Span.GestureRecognizers>
-                            </Span>
-                            
-                        </FormattedString>
+                                </Span>
+                            </FormattedString>
                     </Label.FormattedText>
                 </Label>
-
-
             </Grid>
         </Frame>
     </Grid>

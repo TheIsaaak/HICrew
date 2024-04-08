@@ -2,12 +2,12 @@
 
 namespace HICrew
 {
-    public partial class MainPage : ContentPage
+    public partial class MainPage
     {
-
-        public ICommand TapCommand => new Command<string>(async (url) => await Launcher.OpenAsync(url));
-
-
+        private async void NavigateSignup(object sender, TappedEventArgs e)
+        {
+            await Navigation.PushAsync(new Signup());
+        }
         public MainPage()
         {
             InitializeComponent();
