@@ -5,8 +5,7 @@
              xmlns:local="clr-namespace:HICrew"
              xmlns:system="clr-namespace:System;assembly=netstandard"
              x:Class="HICrew.Signup"
-             Shell.NavBarIsVisible="False"
-             Title="Signup">
+             Shell.NavBarIsVisible="False">
 
     <ContentPage.BindingContext>
         <local:DataFormViewModel/>
@@ -54,8 +53,7 @@
                 </Label>
 
                 <dataForm:SfDataForm MinimumHeightRequest="{OnPlatform Default=160, WinUI=155, MacCatalyst=155}" x:Name="signupForm" VerticalOptions="Start" LayoutType="TextInputLayout" 
-                Grid.Row="1" ColumnCount="2"  DataObject="{Binding SignupFormModel}" 
-                                 ValidationMode="PropertyChanged"  >
+                Grid.Row="1" ColumnCount="2" DataObject="{Binding SignupFormModel}" ValidationMode="PropertyChanged"> 
                 </dataForm:SfDataForm>
 
                 <Button Text="CREATE ACCOUNT" x:Name="loginButton" HeightRequest="40" VerticalOptions="End"
