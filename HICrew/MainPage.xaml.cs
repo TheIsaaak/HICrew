@@ -8,6 +8,12 @@ namespace HICrew
         {
             await Navigation.PushAsync(new Signup());
         }
+
+        private async void NavigateForgotPassword(object sender, TappedEventArgs e)
+        {
+            await Navigation.PushAsync(new ForgotPassword());
+        }
+
         public MainPage()
         {
             InitializeComponent();

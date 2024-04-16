@@ -5,90 +5,105 @@
              xmlns:dataForm="clr-namespace:Syncfusion.Maui.DataForm;assembly=Syncfusion.Maui.DataForm"
              xmlns:local="clr-namespace:HICrew"
              xmlns:system="clr-namespace:System;assembly=netstandard"
-             Shell.NavBarIsVisible="False"
+             NavigationPage.HasNavigationBar="False"
              >
+    
     <ContentPage.BindingContext>
         <local:DataFormViewModel/>
     </ContentPage.BindingContext>
 
-    <Grid ColumnDefinitions="0.6*, 0.4*" RowDefinitions="0.3*, 0.7*" 
-              Background="{OnPlatform Default=Transparent, WinUI=#215b75,MacCatalyst=#83E9EE}">
+    <ContentPage.Content>
+        <ContentView>
+            <ContentView.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#01efcd" Offset="0.35"/>
+                    <GradientStop Color="#0a6e90" Offset="1"/>
+                </LinearGradientBrush>
+            </ContentView.Background>
 
-        <Border  Grid.ColumnSpan="{OnPlatform Default=2, WinUI=1, MacCatalyst=1}" Stroke="Transparent"  Background="{OnPlatform Default=#83E9EE,WinUI=Transparent, MacCatalyst=Transparent}" 
-                    Grid.RowSpan="{OnPlatform Default=1, WinUI=2, MacCatalyst=2}">
-            <Border.StrokeShape>
-                <RoundRectangle CornerRadius="0,0,0,0"/>
-            </Border.StrokeShape>
-            <Image Source="bb.gif" Grid.Row="0"  Grid.Column="0"  HorizontalOptions="Center"  Aspect="AspectFit"/>
-        </Border>
-
-        <Frame CornerRadius="10" Grid.Column="{OnPlatform Default=0, WinUI=1, MacCatalyst=1}"  BorderColor="White" HeightRequest="500" Background="White"
-                  Grid.Row="{OnPlatform Default=1, WinUI=0,MacCatalyst=0}" 
-                  WidthRequest="380" VerticalOptions="{OnPlatform Default=Start, WinUI=Center , MacCatalyst=Center}"
-                  Grid.ColumnSpan="{OnPlatform Default=2, WinUI=1, MacCatalyst=1}" 
-                  Grid.RowSpan="{OnPlatform Default=1, WinUI=2, MacCatalyst=2}">
-            
-            <Grid IsClippedToBounds="True" HeightRequest="450" >
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="75"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="50"/>
-                    <RowDefinition Height="50"/>
-                    <RowDefinition Height="40"/>
-                </Grid.RowDefinitions>
+            <Grid ColumnDefinitions="0.6*, 0.4*" RowDefinitions="0.3*, 0.7*" >
+                <Border Grid.ColumnSpan="{OnPlatform Default=2, WinUI=1, MacCatalyst=1}" Stroke="Transparent" 
+                        Grid.RowSpan="{OnPlatform Default=1, WinUI=2, MacCatalyst=2}">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="0,0,0,0"/>
+                    </Border.StrokeShape>
+                    <Image Source="logowhite.png" Grid.Row="0"  Grid.Column="0"  HorizontalOptions="Center"  Aspect="AspectFit"
+                           WidthRequest="400"/>
+                </Border>
                 
-                <Grid.BindingContext>
-                    <local:DataFormViewModel/>
-                </Grid.BindingContext>
-
-                <Label Padding="30,10,0,0"  
-                       HorizontalOptions="Start" HorizontalTextAlignment="Start" VerticalTextAlignment="Center">
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span Text="Welcome back!&#10;" TextColor="Black" FontSize="25" FontAttributes="Bold"/>
-                            <Span Text="Login to your account" TextColor="Black" FontSize="14"/>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
-
-                <dataForm:SfDataForm MinimumHeightRequest="{OnPlatform Default=160, WinUI=155, MacCatalyst=155}" x:Name="loginForm" VerticalOptions="Start" LayoutType="TextInputLayout" 
-                    Grid.Row="1"  DataObject="{Binding LoginFormModel}" 
-                                     ValidationMode="PropertyChanged"  >
-                </dataForm:SfDataForm>
-
-                <Grid ColumnDefinitions="0.5*,0.5*" Grid.Row="2" Padding="12,0,0,0"  VerticalOptions="Start">
-                    <HorizontalStackLayout VerticalOptions="Center" Padding="10,0,0,0" >
-                        <CheckBox Color="{StaticResource Primary}" />
-                        <Label Text="Remember me" TextColor="Black" FontSize="12" VerticalOptions="Center" />
-                    </HorizontalStackLayout>
-                    <Label Text="Forgot password?" Grid.Column="1"  TextColor="{StaticResource Primary}" HorizontalTextAlignment="Center" Padding="10,0,0,0" FontSize="12"  VerticalOptions="Center" />
-                </Grid>
-
-                <Button Text="LOGIN" x:Name="loginButton" HeightRequest="40" VerticalOptions="End"
-                        HorizontalOptions="Fill" Margin="20,0,20,0" CornerRadius="10"
-                        Padding="0"  FontAttributes="Bold" TextColor="White"
-                        Grid.Row="3" Background="{StaticResource Primary}"/>
-
-                <Label Grid.Row="4" Padding="0,12,0,0"
-                       HorizontalOptions="Center"
-                       HorizontalTextAlignment="Center"
-                       FontSize="14">
-
-                    <Label.GestureRecognizers> <!--This handles the tap gesture for the whole label.-->
-                        <TapGestureRecognizer Tapped="NavigateSignup"/>
-                    </Label.GestureRecognizers>
-
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span Text="Don't have an account?   " TextColor="Black" />
-                            <Span Text="Sign Up" TextDecorations="Underline" 
-                                  TextColor="{StaticResource Primary}">
-                                </Span>
-                            </FormattedString>
-                    </Label.FormattedText>
-                </Label>
+                <Frame CornerRadius="10" Grid.Column="{OnPlatform Default=0, WinUI=1, MacCatalyst=1}"  BorderColor="White" HeightRequest="500" Background="White"
+                      Grid.Row="{OnPlatform Default=1, WinUI=0,MacCatalyst=0}" 
+                      WidthRequest="380" VerticalOptions="{OnPlatform Default=Start, WinUI=Center , MacCatalyst=Center}"
+                      Grid.ColumnSpan="{OnPlatform Default=2, WinUI=1, MacCatalyst=1}" 
+                      Grid.RowSpan="{OnPlatform Default=1, WinUI=2, MacCatalyst=2}">
+    
+                    <Grid IsClippedToBounds="True" HeightRequest="450" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="75"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="40"/>
+                        </Grid.RowDefinitions>
+    
+                        <Grid.BindingContext>
+                            <local:DataFormViewModel/>
+                        </Grid.BindingContext>
+    
+                        <Label Padding="30,10,0,0"  
+                           HorizontalOptions="Start" HorizontalTextAlignment="Start" VerticalTextAlignment="Center">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Welcome back!&#10;" TextColor="Black" FontSize="25" FontAttributes="Bold"/>
+                                    <Span Text="Login to your account" TextColor="Black" FontSize="14"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+    
+                        <dataForm:SfDataForm MinimumHeightRequest="{OnPlatform Default=160, WinUI=155, MacCatalyst=155}" x:Name="loginForm" VerticalOptions="Start" LayoutType="TextInputLayout" 
+                        Grid.Row="1"  DataObject="{Binding LoginFormModel}" 
+                                         ValidationMode="PropertyChanged"  >
+                        </dataForm:SfDataForm>
+    
+                        <Grid ColumnDefinitions="0.5*,0.5*" Grid.Row="2" Padding="12,0,0,0"  VerticalOptions="Start">
+                            <HorizontalStackLayout VerticalOptions="Center" Padding="10,0,0,0" >
+                                <CheckBox Color="{StaticResource Primary}" />
+                                <Label Text="Remember me" TextColor="Black" FontSize="12" VerticalOptions="Center" />
+                            </HorizontalStackLayout>
+                            <Label Text="Forgot password?" Grid.Column="1"  TextColor="{StaticResource Primary}" HorizontalTextAlignment="Center" Padding="10,0,0,0" FontSize="12"  VerticalOptions="Center">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="NavigateForgotPassword"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </Grid>
+    
+                        <Button Text="LOGIN" x:Name="loginButton" HeightRequest="40" VerticalOptions="End"
+                            HorizontalOptions="Fill" Margin="20,0,20,0" CornerRadius="10"
+                            Padding="0"  FontAttributes="Bold" TextColor="White"
+                            Grid.Row="3" Background="{StaticResource Primary}"/>
+    
+                        <Label Grid.Row="4" Padding="0,12,0,0"
+                           HorizontalOptions="Center"
+                           HorizontalTextAlignment="Center"
+                           FontSize="14">
+    
+                            <Label.GestureRecognizers>
+                                <!--This handles the tap gesture for the whole label.-->
+                                <TapGestureRecognizer Tapped="NavigateSignup"/>
+                            </Label.GestureRecognizers>
+    
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Don't have an account?   " TextColor="Black" />
+                                    <Span Text="Sign Up" TextDecorations="Underline" 
+                                      TextColor="{StaticResource Primary}">
+                                    </Span>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </Grid>
+                </Frame>
             </Grid>
-        </Frame>
-    </Grid>
-
+        </ContentView>
+    </ContentPage.Content>
 </ContentPage>

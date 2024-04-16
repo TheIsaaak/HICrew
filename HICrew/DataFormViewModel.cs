@@ -12,6 +12,8 @@
         {
             this.LoginFormModel = new LoginFormModel();
             this.SignupFormModel = new SignupFormModel();
+            this.CompanySignupFormModel = new CompanySignupFormModel();
+            this.ForgotPasswordFormModel = new ForgotPasswordFormModel();
         }
 
         /// <summary>
@@ -20,5 +22,9 @@
         public LoginFormModel LoginFormModel { get; set; }
 
         public SignupFormModel SignupFormModel { get; set; }
+
+        public CompanySignupFormModel CompanySignupFormModel { get; set; }
+
+        public ForgotPasswordFormModel ForgotPasswordFormModel { get; set; }
     }
 }

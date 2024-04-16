@@ -9,9 +9,21 @@ public partial class Signup : ContentPage
 		InitializeComponent();
 		signupForm.ItemsSourceProvider = new ItemSourceProviderExt();
 		signupForm.RegisterEditor("Country",DataFormEditorType.ComboBox);
-	}
 
-	public class ItemSourceProviderExt : IDataFormSourceProvider
+        Routing.RegisterRoute(nameof(CompanySignUp), typeof(CompanySignUp));
+    }
+
+    private async void NavigateMainPage(object sender, TappedEventArgs e)
+    {
+        await Navigation.PushAsync(new MainPage());
+    }
+
+    private async void NavigateCompanySignup(object sender, TappedEventArgs e)
+    {
+        await Navigation.PushAsync(new CompanySignUp());
+    }
+
+    public class ItemSourceProviderExt : IDataFormSourceProvider
 	{
 		public object GetSource(string sourcename)
 		{
@@ -263,7 +275,6 @@ public partial class Signup : ContentPage
 					"Venezuela",
 					"Vietnam",
 					"Wallis and Futuna",
-					"World",
 					"Yemen",
 					"Zambia",
 					"Zimbabwe",
