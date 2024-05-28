@@ -1,4 +1,6 @@
-﻿using System.Windows.Input;
+﻿using Syncfusion.Maui.DataForm;
+using System.ComponentModel;
+using System.Windows.Input;
 
 namespace HICrew
 {
@@ -14,9 +16,17 @@ namespace HICrew
             await Navigation.PushAsync(new ForgotPassword());
         }
 
+        async void NavigateDatabaseView(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new DatabaseView());
+        }
+
+        public LoginFormModel LoginFormModel { get; set; }
+
         public MainPage()
         {
             InitializeComponent();
+            this.LoginFormModel = new LoginFormModel();
         }
     }
 }

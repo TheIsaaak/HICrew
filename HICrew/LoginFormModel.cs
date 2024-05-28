@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 public class LoginFormModel
 {
-    [Display(Prompt = "use example@mail.com", Name = "Email")]
+    [Display(Prompt = "Enter your email address", Name = "Email")]
     public string Email { get; set; }
 
-    [Display(Prompt = "use 'demopassword'", Name = "Password")]
+    [Display(Prompt = "Enter your password", Name = "Password")]
     [DataType(DataType.Password)]
     public string Password { get; set; }
 }

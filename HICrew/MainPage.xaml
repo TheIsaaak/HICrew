@@ -61,8 +61,14 @@
                         </Label>
     
                         <dataForm:SfDataForm MinimumHeightRequest="{OnPlatform Default=160, WinUI=155, MacCatalyst=155}" x:Name="loginForm" VerticalOptions="Start" LayoutType="TextInputLayout" 
-                        Grid.Row="1"  DataObject="{Binding LoginFormModel}" 
-                                         ValidationMode="PropertyChanged"  >
+                        Grid.Row="1"  DataObject="{Binding LoginFormModel}" CommitMode="Manual">
+                            <dataForm:SfDataForm.Items>
+
+                                <dataForm:DataFormTextItem FieldName="Email" />
+
+                                <dataForm:DataFormTextItem FieldName="Password" />
+
+                            </dataForm:SfDataForm.Items>
                         </dataForm:SfDataForm>
     
                         <Grid ColumnDefinitions="0.5*,0.5*" Grid.Row="2" Padding="12,0,0,0"  VerticalOptions="Start">
@@ -80,7 +86,7 @@
                         <Button Text="LOGIN" x:Name="loginButton" HeightRequest="40" VerticalOptions="End"
                             HorizontalOptions="Fill" Margin="20,0,20,0" CornerRadius="10"
                             Padding="0"  FontAttributes="Bold" TextColor="White"
-                            Grid.Row="3" Background="{StaticResource Primary}"/>
+                            Grid.Row="3" Background="{StaticResource Primary}" Clicked="NavigateDatabaseView"/>
     
                         <Label Grid.Row="4" Padding="0,12,0,0"
                            HorizontalOptions="Center"
